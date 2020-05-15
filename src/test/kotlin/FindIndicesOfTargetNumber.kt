@@ -2,6 +2,35 @@ import org.junit.Test
 
 class FindIndicesOfTargetNumber {
 
+    @Test
+    fun `one number in array`(): Unit {
+        val testInput = arrayOf(1)
+
+        val result = findIndices(testInput, 1)
+        assert(result.first == 0)
+        assert(result.second == 0)
+        println(result)
+    }
+
+    @Test
+    fun `empty array`(): Unit {
+        val testInput = emptyArray<Int>()
+
+        val result = findIndices(testInput, 36)
+        assert(result.first == -1)
+        assert(result.second == -1)
+        println(result)
+    }
+
+    @Test
+    fun `number not exists in array`(): Unit {
+        val testInput = arrayOf(1, 2, 5, 7, 10, 10, 11, 12, 12, 21, 34, 35, 35, 35, 35, 35, 36, 90, 91)
+
+        val result = findIndices(testInput, 22)
+        assert(result.first == -1)
+        assert(result.second == -1)
+        println(result)
+    }
 
     @Test
     fun testFindIndices(): Unit {
